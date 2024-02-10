@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>NGI Chatbot</title>
+</head>
+<body>
+    <div class="container">
+        <h1>NGI Chatbot</h1>
+        <form action="/" method="post">
+            <label for="user_message">You:</label>
+            <input type="text" name="user_message" id="user_message" required>
+            <button type="submit">Send</button>
+        </form>
+
+        {% if user_message %}
+            <p class="user-message">You: {{ user_message }}</p>
+        {% endif %}
+
+        {% if bot_response %}
+            <p class="bot-response">NGI Bot: {{ bot_response }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
